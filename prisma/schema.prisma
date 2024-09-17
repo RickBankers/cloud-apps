@@ -1,0 +1,23 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Record {
+  id            Int      @id @default(autoincrement())
+  app_name      String
+  app_envs      String
+  acct_string   String
+  contact_dl    String
+  az_group      String
+  gitlab_url    String
+  glgroup_ow    String
+  glgroup_mt    String
+  glgroup_dv    String
+  project_status String @default("submitted")
+  createdAt     DateTime @default(now())
+}
