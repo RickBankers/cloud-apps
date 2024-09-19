@@ -54,7 +54,7 @@ export default function EditRecord() {
     <div className="p-6">
       <Navbar />
       <h1 className="text-center text-3xl font-bold mb-6 text-green-400">
-        Edit Record
+        Edit Application
       </h1>
       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 max-w-md mx-auto text-black ">
         <input

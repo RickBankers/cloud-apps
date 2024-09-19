@@ -45,14 +45,21 @@ export default function AddRecord() {
     <div className="p-6">
       <Navbar />
       <h1 className="text-center text-3xl font-bold mb-6 text-green-400">
-        Add New Record
+        Application Request Form
       </h1>
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 max-w-md mx-auto">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 max-w-screen-lg mx-auto text-black ">
         <input
           type="text"
           placeholder="App Name"
           value={form.app_name}
-          onChange={(e) => setForm({ ...form, app_name: e.target.value })}
+          onChange={(e) => setForm({ ...form, app_name: e.target.value.toUpperCase(),
+                contact_dl: "DL_AZ_" + e.target.value.toUpperCase(),
+                az_group: "LDAP_AZ_" + e.target.value.toUpperCase() + "_RO",
+                glgroup_ow: "LDAP_GITLAB_" + e.target.value.toUpperCase() + "_OWNER",
+                glgroup_mt: "LDAP_GITLAB_" + e.target.value.toUpperCase() + "_MAINTAINER",
+                glgroup_dv: "LDAP_GITLAB_" + e.target.value.toUpperCase() + "_DEVELOPER",
+                project_status: "submitted"
+             })}
           className="p-2 border border-gray-700 rounded"
           required
         />
@@ -79,6 +86,7 @@ export default function AddRecord() {
           onChange={(e) => setForm({ ...form, contact_dl: e.target.value })}
           className="p-2 border border-gray-700 rounded"
           required
+          disabled
         />
         <input
           type="text"
@@ -87,6 +95,7 @@ export default function AddRecord() {
           onChange={(e) => setForm({ ...form, az_group: e.target.value })}
           className="p-2 border border-gray-700 rounded"
           required
+          disabled
         />
         <input
           type="url"
@@ -103,6 +112,7 @@ export default function AddRecord() {
           onChange={(e) => setForm({ ...form, glgroup_ow: e.target.value })}
           className="p-2 border border-gray-700 rounded"
           required
+          disabled
         />
         <input
           type="text"
@@ -111,6 +121,7 @@ export default function AddRecord() {
           onChange={(e) => setForm({ ...form, glgroup_mt: e.target.value })}
           className="p-2 border border-gray-700 rounded"
           required
+          disabled
         />
         <input
           type="text"
@@ -119,6 +130,7 @@ export default function AddRecord() {
           onChange={(e) => setForm({ ...form, glgroup_dv: e.target.value })}
           className="p-2 border border-gray-700 rounded"
           required
+          disabled
         />
         <input
           type="text"
@@ -127,12 +139,13 @@ export default function AddRecord() {
           onChange={(e) => setForm({ ...form, project_status: e.target.value })}
           className="p-2 border border-gray-700 rounded"
           required
+          disabled
         />
         <button
           type="submit"
           className="bg-green-500 text-white p-2 rounded hover:bg-green-600"
         >
-          Add Record
+          Submit Request
         </button>
         <Link className="bg-red-500 text-white p-2 rounded hover:bg-red-600" href="/"><center>Cancel</center></Link>
       </form>

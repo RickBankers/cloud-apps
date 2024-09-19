@@ -32,12 +32,12 @@ export default function Home() {
     <div className="p-6">
           <Navbar />
       <h1 className="text-center text-3xl font-bold mb-6 text-green-400">
-        Records Management
+        Applications
       </h1>
       {/* Button to Add New Record */}
       <div className="mb-4">
         <Link href="/add" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
-          Add New Record
+          Add
         </Link>
       </div>
 
